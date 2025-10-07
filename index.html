@@ -1,485 +1,54 @@
-<!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
+<!doctype html>
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guia Interativo de Otimização SEO e Performance</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Chosen Palette: TOPSTACK (Monochromatic - Black, White, Grays) -->
-    <!-- Application Structure Plan: A single-page, vertical-scrolling interactive guide. The structure follows the report's priority levels using distinct sections with interactive cards. Clicking a card now triggers a responsive modal, which is optimal for focused content consumption, especially on mobile. A sticky top navigation allows quick jumps between sections. The experience culminates in a fully interactive checklist. This structure was chosen to make a dense document scannable and actionable, using modals to prevent UI clutter. -->
-    <!-- Visualization & Content Choices: Report Info: SEO/Performance best practices -> Goal: Inform, Organize, Engage -> Viz/Presentation Method: Interactive cards triggering a central modal (HTML/CSS/JS), styled code blocks, and an interactive checklist with a dynamic progress bar. Interaction: Clicking cards to open a modal with details, copying code snippets, and checking off tasks. Justification: This approach turns passive reading into active, focused learning. Modals are superior to accordion elements on mobile and create a cleaner interface. Library/Method: Vanilla JS for all interactions. -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="icon" href="midias/topstack-favicon-120x120.png" type="image/png">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #ffffff;
-            color: #111827;
-        }
-        .modal-active {
-            overflow: hidden;
-        }
-        .code-block {
-            position: relative;
-        }
-        .copy-button {
-            position: absolute;
-            top: 0.5rem;
-            right: 0.5rem;
-            background-color: #374151;
-            color: white;
-            padding: 0.25rem 0.5rem;
-            font-size: 0.75rem;
-            border-radius: 0.25rem;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-        .copy-button:hover {
-            background-color: #111827;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DEALERSPACE — Passo a passo</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="midias/topstack-favicon-120x120.png" type="image/png">
+  <!-- ...existing head content... -->
 </head>
-<body class="text-gray-900">
+<body>
+  <main class="container">
+    <h1 class="title">DEALERSPACE — Passo a passo</h1>
 
-    <header class="bg-white/90 backdrop-blur-lg shadow-sm sticky top-0 z-40">
-        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <div class="flex items-center">
-                    <span class="font-bold text-xl text-gray-800 tracking-wider">GUIA DE OTIMIZAÇÃO</span>
-                </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#prioridade-alta" class="text-gray-600 hover:text-black px-3 py-2 rounded-md text-sm font-medium">Prioridade Alta</a>
-                        <a href="#prioridade-media" class="text-gray-600 hover:text-black px-3 py-2 rounded-md text-sm font-medium">Prioridade Média</a>
-                        <a href="#performance" class="text-gray-600 hover:text-black px-3 py-2 rounded-md text-sm font-medium">Performance</a>
-                        <a href="#checklist" class="text-gray-600 hover:text-black px-3 py-2 rounded-md text-sm font-medium">Checklist Interativo</a>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </header>
+    <figure class="hero">
+      <img src="Captura de tela 2025-10-07 163359.png" alt="Banner DEALERSPACE" class="hero-image" />
+      <figcaption class="hero-caption">Imagem principal — envie mais imagens para adicionar à lista</figcaption>
+      <ol class="image-instructions" aria-label="Instruções para imagem principal">
+        <li>Verificar a proporção correta das imagens ex (16:9) ou (640x280px).</li>
+        <li>Renomear e usar o nome correto da imagem ex: sportage-banner-1-na-estrada.png.</li>
+      </ol>
+    </figure>
 
-    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <section id="intro" class="text-center mb-12">
-            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-black">Otimização SEO e Performance</h1>
-            <p class="max-w-3xl mx-auto text-lg text-gray-600">Corrigir os pontos críticos de performance da página, focando em reduzir o tempo de resposta do servidor (TTFB), otimizar o carregamento de imagens pesadas (LCP) e eliminar o bloqueio de scripts (TBT) para melhorar a experiência do usuário e a conversão.</p>
-        </section>
+    <figure class="hero">
+      <img src="Captura de tela 2025-10-07 170008.png" alt="Imagem adicional DEALERSPACE" class="hero-image" />
+      <figcaption class="hero-caption">Imagem adicional — próxima etapa</figcaption>
+      <ol class="image-instructions" aria-label="Instruções para imagem adicional">
+        <li>Descrições nos inputs.</li>
+      </ol>
+    </figure>
 
-        <section id="analyser" class="max-w-2xl mx-auto mb-16 bg-gray-50 p-6 rounded-lg border border-gray-200">
-             <h2 class="text-xl font-bold text-center mb-4">Analise a Performance da sua Página</h2>
-             <div class="flex flex-col sm:flex-row gap-2">
-                <input type="url" id="url-input" placeholder="https://www.seusite.com.br" class="flex-grow w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black">
-                <button id="analyse-button" class="w-full sm:w-auto bg-black text-white font-semibold py-2 px-6 rounded-md hover:bg-gray-800 transition-colors focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2">Analisar</button>
-             </div>
-        </section>
+    <figure class="hero">
+      <img src="Captura de tela 2025-10-07 171631.png" alt="Imagem de rastreamento DEALERSPACE" class="hero-image" />
+      <figcaption class="hero-caption">Imagem — Rastreamento / Analytics</figcaption>
+      <ol class="image-instructions" aria-label="Instruções para imagem de rastreamento">
+        <li>Esta etapa é responsável pelo rastreamento (Data Analytics / Web Analytics); nenhuma das contas Google tem a tag "tagmanager.google".</li>
+        <li>Este é um recurso avançado, mas sem ele a plataforma não consegue medir as conversões de forma precisa.</li>
+      </ol>
+    </figure>
 
-        <section id="prioridade-alta" class="mb-16">
-            <h2 class="text-3xl font-bold border-l-4 border-gray-800 pl-4 mb-8">Prioridade Alta: Fundamentos Críticos</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                
-                <div class="modal-trigger bg-gray-50 rounded-lg border border-gray-200 p-6 cursor-pointer hover:shadow-lg hover:border-black transition-all duration-300">
-                    <h3 class="text-xl font-semibold text-gray-800">Schema Markup</h3>
-                    <p class="text-sm text-gray-500 mt-1">Dados Estruturados para o Google.</p>
-                    <div class="modal-content hidden">
-                        <p class="font-semibold mb-2">O que é?</p>
-                        <p class="mb-4 text-gray-600">É um vocabulário padronizado que você adiciona ao HTML da sua página para ajudar os motores de busca a entenderem melhor o seu conteúdo e a exibi-lo de forma mais destacada nos resultados de pesquisa (Rich Snippets).</p>
-                        <p class="font-semibold mb-2">Solução:</p>
-                        <ul class="list-disc list-inside space-y-2 text-gray-600 mb-4">
-                            <li>**Páginas de Produto/Veículo:** Use `Product` ou `Vehicle`.</li>
-                            <li>**Homepage:** Use `Organization` ou `LocalBusiness`.</li>
-                            <li>**Páginas de Blog:** Use `Article`.</li>
-                        </ul>
-                        <div class="code-block">
-                             <button class="copy-button">Copiar</button>
-                             <pre class="bg-gray-800 text-white p-4 rounded-md overflow-x-auto text-sm"><code>&lt;script type="application/ld+json"&gt;
-{
-  "@context": "https://schema.org/",
-  "@type": "Product",
-  "name": "Nome do Produto Específico",
-  "description": "Uma descrição detalhada.",
-  "brand": { "@type": "Brand", "name": "Nome da Marca" },
-  "offers": {
-    "@type": "Offer",
-    "priceCurrency": "BRL",
-    "price": "1234.56",
-    "availability": "https://schema.org/InStock",
-    "seller": { "@type": "Organization", "name": "Nome da Empresa" }
-  }
-}
-&lt;/script&gt;</code></pre>
-                        </div>
-                        <div class="validation-link-container mt-6"></div>
-                    </div>
-                </div>
+    <section class="instructions">
+      <h2>Instruções gerais</h2>
+      <p class="hero-caption">Cada imagem acima tem sua própria lista de instruções — não misturar.</p>
+    </section>
+  </main>
 
-                <div class="modal-trigger bg-gray-50 rounded-lg border border-gray-200 p-6 cursor-pointer hover:shadow-lg hover:border-black transition-all duration-300">
-                    <h3 class="text-xl font-semibold text-gray-800">Tag Canonical</h3>
-                    <p class="text-sm text-gray-500 mt-1">Utilize https.</p>
-                    <div class="modal-content hidden">
-                        <p class="font-semibold mb-2">O que é?</p>
-                        <p class="mb-4 text-gray-600">Uma tag HTML que informa aos motores de busca qual é a versão "preferencial" de uma página, quando existem múltiplas URLs com o mesmo conteúdo.</p>
-                         <p class="font-semibold mb-2">Solução:</p>
-                        <p class="text-gray-600 mb-4">A tag `<link rel="canonical" ...>` deve sempre conter a URL completa e segura (`https://`) da própria página.</p>
-                        <div class="code-block">
-                             <button class="copy-button">Copiar</button>
-                             <pre class="bg-gray-800 text-white p-4 rounded-md overflow-x-auto text-sm"><code>&lt;link rel="canonical" href="https://www.seusite.com.br/pagina-especifica"/&gt;</code></pre>
-                        </div>
-                        <div class="validation-link-container mt-6"></div>
-                    </div>
-                </div>
-
-                <div class="modal-trigger bg-gray-50 rounded-lg border border-gray-200 p-6 cursor-pointer hover:shadow-lg hover:border-black transition-all duration-300">
-                    <h3 class="text-xl font-semibold text-gray-800">Atributos `alt` das Imagens</h3>
-                    <p class="text-sm text-gray-500 mt-1">Otimize para imagens e renomear corretamente as imagens.</p>
-                    <div class="modal-content hidden">
-                        <p class="font-semibold mb-2">O que é?</p>
-                        <p class="mb-4 text-gray-600">O texto alternativo (`alt`) descreve uma imagem, ajudando os motores de busca a entenderem seu conteúdo e tornando a página acessível para pessoas com deficiência visual.</p>
-                        <p class="font-semibold mb-2">Solução:</p>
-                        <p class="text-gray-600 mb-4">Descreva a imagem de forma concisa e útil, incluindo palavras-chave relevantes de forma natural.</p>
-                        <div class="space-y-2 p-4 bg-gray-100 rounded">
-                           <p class="text-red-600 font-mono text-sm">Incorreto: &lt;img src="..." alt="foto_01"&gt;</p>
-                           <p class="text-green-600 font-mono text-sm">Correto: &lt;img src="..." alt="Nome do Produto na cor Azul, vista de frente"&gt;</p>
-                        </div>
-                        <div class="validation-link-container mt-6"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="prioridade-media" class="mb-16">
-            <h2 class="text-3xl font-bold border-l-4 border-gray-600 pl-4 mb-8">Prioridade Média: Conteúdo e Visibilidade</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-                 <div class="modal-trigger bg-gray-50 rounded-lg border border-gray-200 p-6 cursor-pointer hover:shadow-lg hover:border-black transition-all duration-300">
-                    <h3 class="text-xl font-semibold text-gray-800">Meta Title & Description</h3>
-                    <p class="text-sm text-gray-500 mt-1">Revisar titulos e descrições do head.</p>
-                    <div class="modal-content hidden">
-                        <p class="font-semibold mb-2">Solução:</p>
-                        <ul class="list-disc list-inside space-y-2 text-gray-600 mb-4">
-                            <li>**Meta Title (50-60 caracteres):** Deve ser informativo, conter a palavra-chave principal e o nome da marca.</li>
-                            <li>**Meta Description (140-160 caracteres):** Deve funcionar como um anúncio, descrevendo o benefício e incluindo um Call-to-Action (CTA).</li>
-                        </ul>
-                        <p class="font-semibold mb-2">Exemplo:</p>
-                        <div class="code-block">
-                             <button class="copy-button">Copiar</button>
-                             <pre class="bg-gray-800 text-white p-4 rounded-md overflow-x-auto text-sm"><code>&lt;title&gt;Nome do Produto | Condições e Preço na Sua Loja&lt;/title&gt;
-&lt;meta name="description" content="Conheça o [Nome do Produto]. Performance incrível e design inovador. Clique para ver os detalhes e peça sua cotação!"&gt;</code></pre>
-                        </div>
-                        <div class="validation-link-container mt-6"></div>
-                    </div>
-                </div>
-
-                <div class="modal-trigger bg-gray-50 rounded-lg border border-gray-200 p-6 cursor-pointer hover:shadow-lg hover:border-black transition-all duration-300">
-                    <h3 class="text-xl font-semibold text-gray-800">Tags Open Graph (Redes Sociais)</h3>
-                    <p class="text-sm text-gray-500 mt-1">Adicionar os dados correspondentes.</p>
-                    <div class="modal-content hidden">
-                        <p class="font-semibold mb-2">Solução:</p>
-                        <p class="text-gray-600 mb-4">Garanta que toda página tenha as tags `og:title`, `og:description`, e `og:image` para uma pré-visualização profissional e atrativa em redes sociais como Facebook, Instagram e WhatsApp.</p>
-                        <div class="code-block">
-                             <button class="copy-button">Copiar</button>
-                             <pre class="bg-gray-800 text-white p-4 rounded-md overflow-x-auto text-sm"><code>&lt;meta property="og:title" content="Título Atrativo para Redes Sociais"&gt;
-&lt;meta property="og:description" content="Descrição vendedora que gera curiosidade."&gt;
-&lt;meta property="og:image" content="https://seusite.com/imagem.jpg"&gt;</code></pre>
-                        </div>
-                        <div class="validation-link-container mt-6"></div>
-                    </div>
-                </div>
-
-                <div class="modal-trigger bg-gray-50 rounded-lg border border-gray-200 p-6 cursor-pointer hover:shadow-lg hover:border-black transition-all duration-300">
-                    <h3 class="text-xl font-semibold text-gray-800">Uso de Palavras-chave</h3>
-                    <p class="text-sm text-gray-500 mt-1">Adicionar as keywords.</p>
-                    <div class="modal-content hidden">
-                        <p class="font-semibold mb-2">Solução:</p>
-                        <p class="text-gray-600 mb-4">Defina uma palavra-chave principal para cada página e use-a de forma natural nos seguintes locais:</p>
-                        <ul class="list-disc list-inside space-y-2 text-gray-600">
-                            <li>Títulos e subtítulos (tags `h1`, `h2`).</li>
-                            <li>Primeiro parágrafo do texto.</li>
-                            <li>Ao longo do conteúdo.</li>
-                            <li>No atributo `alt` das imagens relevantes.</li>
-                        </ul>
-                        <div class="validation-link-container mt-6"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="performance" class="mb-16">
-            <h2 class="text-3xl font-bold border-l-4 border-gray-400 pl-4 mb-8">Performance Técnica</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-                 <div class="modal-trigger bg-gray-50 rounded-lg border border-gray-200 p-6 cursor-pointer hover:shadow-lg hover:border-black transition-all duration-300">
-                    <h3 class="text-xl font-semibold text-gray-800">Otimização de CSS</h3>
-                    <p class="text-sm text-gray-500 mt-1">Agilize o carregamento visual.</p>
-                    <div class="modal-content hidden">
-                         <p class="font-semibold mb-2">O Problema:</p>
-                         <p class="text-gray-600 mb-4">Grandes blocos de código CSS dentro do HTML atrasam o carregamento da página.</p>
-                         <p class="font-semibold mb-2">Solução:</p>
-                         <p class="text-gray-600">Mova todo o CSS para arquivos externos (`.css`) e chame-os no `<head>`. Isso permite que o navegador armazene o arquivo em cache, acelerando futuras visitas.</p>
-                         <div class="validation-link-container mt-6"></div>
-                    </div>
-                </div>
-
-                 <div class="modal-trigger bg-gray-50 rounded-lg border border-gray-200 p-6 cursor-pointer hover:shadow-lg hover:border-black transition-all duration-300">
-                    <h3 class="text-xl font-semibold text-gray-800">Auditoria de Scripts</h3>
-                    <p class="text-sm text-gray-500 mt-1">Mantenha apenas o essencial.</p>
-                    <div class="modal-content hidden">
-                        <p class="font-semibold mb-2">O Problema:</p>
-                        <p class="text-gray-600 mb-4">Múltiplos scripts de rastreamento (Google Tag Manager, Pixels) podem deixar o site lento e criar redundância.</p>
-                         <p class="font-semibold mb-2">Solução:</p>
-                         <p class="text-gray-600">Realize auditorias periódicas para remover scripts desnecessários. Consolide tags em um único contêiner do Google Tag Manager sempre que possível.</p>
-                         <div class="validation-link-container mt-6"></div>
-                    </div>
-                </div>
-
-                 <div class="modal-trigger bg-gray-50 rounded-lg border border-gray-200 p-6 cursor-pointer hover:shadow-lg hover:border-black transition-all duration-300">
-                    <h3 class="text-xl font-semibold text-gray-800">Carregamento de Imagens</h3>
-                    <p class="text-sm text-gray-500 mt-1">Otimizar o carregamento.</p>
-                    <div class="modal-content hidden">
-                        <p class="font-semibold mb-2">Solução:</p>
-                        <ul class="list-disc list-inside space-y-2 text-gray-600">
-                            <li>**Imagens fora da visão inicial:** Use o atributo `loading="lazy"` para que elas só carreguem quando o usuário rolar a página até elas.</li>
-                            <li>**Imagem principal (topo da página):** Priorize seu carregamento com `loading="eager"` e `fetchpriority="high"` para melhorar a experiência inicial do usuário.</li>
-                        </ul>
-                        <div class="validation-link-container mt-6"></div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <section id="checklist" class="bg-white rounded-lg border border-gray-200 shadow-md p-6 md:p-8">
-            <h2 class="text-3xl font-bold mb-2">Checklist Interativo</h2>
-            <p class="text-gray-600 mb-6">Marque os itens conforme você os implementa e acompanhe seu progresso.</p>
-            
-            <div class="mb-6">
-                <div class="flex justify-between mb-1">
-                    <span class="text-base font-medium text-gray-700">Progresso</span>
-                    <span id="progress-text" class="text-sm font-medium text-gray-700">0%</span>
-                </div>
-                <div class="w-full bg-gray-200 rounded-full h-2.5">
-                    <div id="progress-bar" class="bg-gray-800 h-2.5 rounded-full transition-all duration-500" style="width: 0%"></div>
-                </div>
-            </div>
-
-            <div class="space-y-4">
-                <label class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200 cursor-pointer">
-                    <input type="checkbox" class="checklist-item h-5 w-5 rounded border-gray-300 text-black focus:ring-black">
-                    <span class="ml-4 text-gray-700">Schema Markup está correto e validado.</span>
-                </label>
-                 <label class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200 cursor-pointer">
-                    <input type="checkbox" class="checklist-item h-5 w-5 rounded border-gray-300 text-black focus:ring-black">
-                    <span class="ml-4 text-gray-700">Tag Canonical aponta para a URL com `https://`.</span>
-                </label>
-                 <label class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200 cursor-pointer">
-                    <input type="checkbox" class="checklist-item h-5 w-5 rounded border-gray-300 text-black focus:ring-black">
-                    <span class="ml-4 text-gray-700">Todas as imagens possuem `alt text` descritivo.</span>
-                </label>
-                 <label class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200 cursor-pointer">
-                    <input type="checkbox" class="checklist-item h-5 w-5 rounded border-gray-300 text-black focus:ring-black">
-                    <span class="ml-4 text-gray-700">Meta Title é informativo e tem o tamanho ideal.</span>
-                </label>
-                 <label class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200 cursor-pointer">
-                    <input type="checkbox" class="checklist-item h-5 w-5 rounded border-gray-300 text-black focus:ring-black">
-                    <span class="ml-4 text-gray-700">Meta Description é vendedora e tem um CTA.</span>
-                </label>
-                 <label class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200 cursor-pointer">
-                    <input type="checkbox" class="checklist-item h-5 w-5 rounded border-gray-300 text-black focus:ring-black">
-                    <span class="ml-4 text-gray-700">Tags Open Graph estão preenchidas.</span>
-                </label>
-                 <label class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200 cursor-pointer">
-                    <input type="checkbox" class="checklist-item h-5 w-5 rounded border-gray-300 text-black focus:ring-black">
-                    <span class="ml-4 text-gray-700">O CSS está em um arquivo externo.</span>
-                </label>
-                 <label class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200 cursor-pointer">
-                    <input type="checkbox" class="checklist-item h-5 w-5 rounded border-gray-300 text-black focus:ring-black">
-                    <span class="ml-4 text-gray-700">Carregamento de imagens está otimizado (lazy/eager).</span>
-                </label>
-            </div>
-        </section>
-    </main>
-
-    <footer class="bg-black text-white mt-16">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center">
-            <p>&copy; 2025 TOPSTACK. Todos os direitos reservados.</p>
-        </div>
-    </footer>
-
-    <div id="modal" class="fixed inset-0 bg-black bg-opacity-70 z-50 hidden flex items-center justify-center p-4">
-        <div id="modal-content" class="bg-white rounded-lg shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto transform transition-transform duration-300 scale-95">
-            <div class="flex justify-between items-center p-4 border-b">
-                <h3 id="modal-title" class="text-2xl font-bold"></h3>
-                <button id="modal-close" class="text-gray-400 hover:text-black">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                </button>
-            </div>
-            <div id="modal-body" class="p-6">
-            </div>
-        </div>
-    </div>
-
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const checklistItems = document.querySelectorAll('.checklist-item');
-            const progressBar = document.getElementById('progress-bar');
-            const progressText = document.getElementById('progress-text');
-            const totalItems = checklistItems.length;
-
-            function updateProgress() {
-                const checkedItems = document.querySelectorAll('.checklist-item:checked').length;
-                const percentage = totalItems > 0 ? Math.round((checkedItems / totalItems) * 100) : 0;
-                progressBar.style.width = `${percentage}%`;
-                progressText.textContent = `${percentage}% (${checkedItems}/${totalItems})`;
-            }
-
-            checklistItems.forEach(item => {
-                item.addEventListener('change', updateProgress);
-            });
-            
-            updateProgress();
-
-            const modal = document.getElementById('modal');
-            const modalContent = document.getElementById('modal-content');
-            const modalTitle = document.getElementById('modal-title');
-            const modalBody = document.getElementById('modal-body');
-            const modalClose = document.getElementById('modal-close');
-            const modalTriggers = document.querySelectorAll('.modal-trigger');
-            const body = document.body;
-            const urlInput = document.getElementById('url-input');
-            const analyseButton = document.getElementById('analyse-button');
-
-            analyseButton.addEventListener('click', () => {
-                const userUrl = urlInput.value;
-                if (userUrl) {
-                    const pageSpeedUrl = `https://pagespeed.web.dev/analysis?url=${encodeURIComponent(userUrl)}`;
-                    window.open(pageSpeedUrl, '_blank');
-                } else {
-                    alert('Por favor, insira uma URL para analisar.');
-                }
-            });
-
-            const validationLinksConfig = {
-                'Dados Estruturados (Schema)': {
-                    baseUrl: 'https://search.google.com/test/rich-results?url=',
-                    label: 'Validar com Google'
-                },
-                'Tag Canonical': {
-                    baseUrl: 'https://seositecheckup.com/seo-audit/',
-                    label: 'Verificar Tag Canonical'
-                },
-                'Atributos `alt` das Imagens': {
-                    baseUrl: 'https://wave.webaim.org/report#/',
-                    label: 'Verificar Acessibilidade'
-                },
-                'Meta Title & Description': {
-                    baseUrl: 'https://seositecheckup.com/seo-audit/',
-                    label: 'Analisar Meta Tags'
-                },
-                'Tags Open Graph (Redes Sociais)': {
-                    baseUrl: 'https://developers.facebook.com/tools/debug/?q=',
-                    label: 'Validar no Facebook Debugger'
-                },
-                'Otimização de CSS': {
-                    baseUrl: 'https://pagespeed.web.dev/analysis?url=',
-                    label: 'Verificar com PageSpeed'
-                },
-                'Auditoria de Scripts': {
-                    baseUrl: 'https://pagespeed.web.dev/analysis?url=',
-                    label: 'Verificar com PageSpeed'
-                },
-                'Carregamento de Imagens': {
-                    baseUrl: 'https://pagespeed.web.dev/analysis?url=',
-                    label: 'Verificar com PageSpeed'
-                }
-            };
-
-            const openModal = (trigger) => {
-                const title = trigger.querySelector('h3').textContent;
-                const content = trigger.querySelector('.modal-content').innerHTML;
-                
-                modalTitle.textContent = title;
-                modalBody.innerHTML = content;
-
-                const validationContainer = modalBody.querySelector('.validation-link-container');
-                if (validationContainer) {
-                    const config = validationLinksConfig[title];
-                    const userUrl = urlInput.value;
-
-                    if (config) {
-                        if (userUrl) {
-                             let finalUrl;
-                             if (config.baseUrl.includes('seositecheckup.com')) {
-                                const sanitizedUrl = userUrl.replace(/^https?:\/\//, '');
-                                finalUrl = `${config.baseUrl}${sanitizedUrl}`;
-                             } else if (title === 'Atributos `alt` das Imagens') {
-                                finalUrl = `${config.baseUrl}${userUrl.replace(/^https?:\/\//, '')}`;
-                             } else {
-                                finalUrl = `${config.baseUrl}${encodeURIComponent(userUrl)}`;
-                             }
-                            validationContainer.innerHTML = `<a href="${finalUrl}" target="_blank" class="inline-block w-full text-center bg-black text-white font-semibold py-3 px-4 rounded-md hover:bg-gray-800 transition-colors">${config.label}</a>`;
-                        } else {
-                            validationContainer.innerHTML = `<button disabled class="w-full text-center bg-gray-300 text-gray-500 font-semibold py-3 px-4 rounded-md cursor-not-allowed">Insira uma URL para validar</button>`;
-                        }
-                    } else {
-                        validationContainer.innerHTML = '';
-                    }
-                }
-                
-                modal.classList.remove('hidden');
-                body.classList.add('modal-active');
-                
-                setTimeout(() => {
-                    modalContent.classList.remove('scale-95');
-                    modalContent.classList.add('scale-100');
-                }, 10);
-
-                const copyButtons = modalBody.querySelectorAll('.copy-button');
-                copyButtons.forEach(button => {
-                    button.addEventListener('click', (e) => {
-                        const codeBlock = e.target.nextElementSibling;
-                        const code = codeBlock.innerText;
-                        navigator.clipboard.writeText(code).then(() => {
-                            button.textContent = 'Copiado!';
-                            setTimeout(() => {
-                                button.textContent = 'Copiar';
-                            }, 2000);
-                        }).catch(err => {
-                            console.error('Falha ao copiar texto: ', err);
-                        });
-                    });
-                });
-            };
-
-            const closeModal = () => {
-                modalContent.classList.remove('scale-100');
-                modalContent.classList.add('scale-95');
-                setTimeout(() => {
-                    modal.classList.add('hidden');
-                    body.classList.remove('modal-active');
-                }, 300);
-            };
-
-            modalTriggers.forEach(trigger => {
-                trigger.addEventListener('click', () => openModal(trigger));
-            });
-
-            modalClose.addEventListener('click', closeModal);
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    closeModal();
-                }
-            });
-        });
-    </script>
+  <script type="module" src="script.js"></script>
+  <!-- ...existing body content... -->
 </body>
 </html>
 
 
 
-
-
-
-
+    
