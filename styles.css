@@ -32,7 +32,25 @@ body{
   border:1px solid #eee;
   padding:12px;
   background:#fff;
+  position:relative;
 }
+
+.hero-actions{
+  margin-top:10px;
+}
+
+.compress-btn{
+  display:inline-block;
+  background:transparent;
+  color:var(--accent);
+  border:1px solid var(--accent);
+  padding:8px 12px;
+  font-size:13px;
+  text-decoration:none;
+  border-radius:6px;
+}
+
+.compress-btn:hover{ background:rgba(10,116,218,0.06); }
 
 .hero-image{
   display:block;
