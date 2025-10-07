@@ -1,0 +1,64 @@
+:root{
+  --bg: #fff;
+  --text: #111;
+  --muted: #666;
+  --accent: #0a74da;
+  font-family: "Noto Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* ...existing styles... */
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+.container{
+  max-width:900px;
+  margin:36px auto;
+  padding:24px;
+}
+
+.title{
+  margin:0 0 18px 0;
+  font-weight:700;
+  font-size:20px;
+}
+
+.hero{
+  margin:0 0 20px 0;
+  border:1px solid #eee;
+  padding:12px;
+  background:#fff;
+}
+
+.hero-image{
+  display:block;
+  width:100%;
+  height:auto;
+  max-height:360px;
+  object-fit:contain;
+  background:#f6f6f6;
+}
+
+.hero-caption{
+  margin-top:8px;
+  color:var(--muted);
+  font-size:13px;
+}
+
+/* Instructions list */
+.instructions h2{
+  margin:12px 0;
+  font-size:16px;
+}
+
+.instructions ol{
+  margin:0 0 12px 20px;
+  color:var(--text);
+  line-height:1.6;
+}
+
+/* ...existing styles... */
